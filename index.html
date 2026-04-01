@@ -4,9 +4,9 @@
   <base target="_top">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
   
-  <link rel="apple-touch-icon" href="https://i.ibb.co/1Cf8JTS/S-4620317.jpg">
-  <link rel="icon" sizes="192x192" href="https://i.ibb.co/1Cf8JTS/S-4620317.jpg">
-  <link rel="shortcut icon" href="https://i.ibb.co/1Cf8JTS/S-4620317.jpg">
+  <link rel="apple-touch-icon" href="">
+  <link rel="icon" sizes="192x192" href="">
+  <link rel="shortcut icon" href="">
   
   <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
@@ -114,7 +114,7 @@
           <div className="flex flex-col justify-center ml-2 relative z-10">
             <div className="flex items-center gap-1">
              <h1 className="text-2xl font-black italic tracking-tighter flex">
-              {"Nori Design".split('').map((char, index) => (
+              {"LemonTart".split('').map((char, index) => (
                 <span 
                   key={index} 
                   className={`bg-gradient-to-br from-[#6f86aa] to-[#b3c3d2] bg-clip-text text-transparent drop-shadow-sm inline-block animate-text-wave pb-2 ${char === ' ' ? 'w-2.5' : 'pr-[1.5px]'}`} 
@@ -260,12 +260,18 @@
           borderColor: task.status === 'doing' ? COLORS.orangeDeep : (task.status === 'done' ? 'transparent' : COLORS.white), 
           opacity: task.status === 'done' ? 0.7 : 1 
         }}>
-        {task.status === 'doing' && (
+         {task.status === 'doing' && (
            <div className="absolute inset-0 pointer-events-none z-0">
-             <div className="absolute -bottom-2 -left-3 text-[14px] animate-float-particle-1 drop-shadow-sm">✨</div>
-             <div className="absolute top-[30%] -left-4 text-[10px] animate-float-particle-3 drop-shadow-sm" style={{ animationDelay: '1.5s' }}>🍃</div>
-             <div className="absolute -bottom-2 -right-3 text-[14px] animate-float-particle-2 drop-shadow-sm" style={{ animationDelay: '0.5s' }}>✨</div>
-             <div className="absolute top-[30%] -right-4 text-[10px] animate-float-particle-1 drop-shadow-sm" style={{ animationDelay: '1.2s' }}>🍃</div>
+             {/* เปลี่ยนจากอีโมจิ เป็นแท็ก img และใส่ลิงก์รูป .webp ของคุณใน src */}
+             {/* สามารถปรับขนาดรูปได้ที่ w-4 h-4 (ยิ่งตัวเลขเยอะ รูปยิ่งใหญ่ เช่น w-6 h-6) */}
+             
+             <img src="https://i.ibb.co/LzjNBZnZ/10.webp" alt="particle" className="absolute -bottom-2 -left-3 w-5 h-5 object-contain animate-float-particle-1 drop-shadow-sm" />
+             
+             <img src="https://i.ibb.co/LzjNBZnZ/10.webp" alt="particle" className="absolute top-[30%] -left-4 w-4 h-4 object-contain animate-float-particle-3 drop-shadow-sm" style={{ animationDelay: '1.5s' }} />
+             
+             <img src="https://i.ibb.co/LzjNBZnZ/10.webp" alt="particle" className="absolute -bottom-2 -right-3 w-5 h-5 object-contain animate-float-particle-2 drop-shadow-sm" style={{ animationDelay: '0.5s' }} />
+             
+             <img src="https://i.ibb.co/LzjNBZnZ/10.webp" alt="particle" className="absolute top-[30%] -right-4 w-4 h-4 object-contain animate-float-particle-1 drop-shadow-sm" style={{ animationDelay: '1.2s' }} />
            </div>
         )}
         <div className="absolute left-2 top-3 bottom-3 w-1 rounded-full shadow-sm z-10" style={{ backgroundColor: task.channel === 'LINE' ? '#cdcea1' : task.channel === 'FB' || task.channel === 'FACEBOOK' ? '#b3c3d2' : task.channel === 'IG' ? '#eaecea' : COLORS.purpleDeep }}></div>
@@ -426,7 +432,7 @@
       const [selectedNextDate, setSelectedNextDate] = useState(''); 
       const [isBouncing, setIsBouncing] = useState(false); 
 
-      const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbx-2OX7kdX_I1nOQnR0ufdt9Z_rfcqXBhTIUoBMhLq8QqWhKT55Z7gfVhgs0V-TB79q/exec";
+      const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbz8BkEQftLrwH43S0aY-mT6JzCU3J0t_0gRjGAJ77Ay_WJ45kpOO7P7JCrfK5lBrc8J/exec";
 
       const fetchAPI = async (payload) => {
         try {
@@ -443,7 +449,7 @@
       };
 
       useEffect(() => {
-        document.title = "Nori Design";
+        document.title = "LemonTart";
         
         fetch(WEB_APP_URL + "?action=getInitialData")
           .then(res => res.json())
@@ -845,7 +851,7 @@
                         let finalUrl = tempBannerUrl;
                         const match = finalUrl.match(/\/file\/d\/([a-zA-Z0-9_-]+)/) || finalUrl.match(/id=([a-zA-Z0-9_-]+)/) || finalUrl.match(/\/d\/([a-zA-Z0-9_-]+)/);
                         if (match && match[1]) {
-                            finalUrl = `https://lh3.googleusercontent.com/d/$${match[1]}`;
+                            finalUrl = `https://lh3.googleusercontent.com/d/${match[1]}`;
                         }
                         setBannerImage(finalUrl); 
                         toggleBannerVisibility(true);
